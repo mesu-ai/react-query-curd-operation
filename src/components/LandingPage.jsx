@@ -7,9 +7,9 @@ const LandingPage = () => {
   const queryClient = useQueryClient();
   const { data } = useQuery(['get-data'], () => getData());
   const { mutateAsync:deleteAsyncDate } = useMutation(['delete-data'], (data) => deleteData(data),
-    // {
-    //   onSuccess: () => queryClient.invalidateQueries(['get-Data']),
-    // }
+    {
+      onSuccess: () => queryClient.invalidateQueries(['get-Data']),
+    }
   );
 
   const {mutateAsync:updateAsyncData}=useMutation(['update-data'],(data)=>updateData(data))
